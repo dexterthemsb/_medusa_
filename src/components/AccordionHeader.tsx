@@ -37,13 +37,13 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
     <AccordionButton
       py="4"
       justifyContent="space-between"
-      _hover={{ backgroundColor: isExpanded ? "gray.100" : "gray.100" }}
+      _hover={{ backgroundColor: isExpanded ? "none" : "gray.100" }}
     >
       <Box
         rounded="full"
         bgColor="yellow.400"
-        w="8"
-        h="8"
+        w="9"
+        h="9"
         outline="thick solid white"
       ></Box>
 
@@ -74,7 +74,7 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
 
         <Box ml="4" rounded="full" bgColor="blue.400" w="8" h="8"></Box>
 
-        <Box ml="4" display="flex" flexDir="row" alignItems="center">
+        <Box ml="3" display="flex" flexDir="row" alignItems="center">
           <IconButton stopPropagation onClick={e => setLiked(!liked)}>
             {liked ? (
               <HeartIconSolid {...SVG20} />
@@ -106,7 +106,7 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
       </Box>
 
       <IconButton
-        ml="1.5"
+        ml="1"
         p="2"
         rounded="lg"
         bgColor="white"
