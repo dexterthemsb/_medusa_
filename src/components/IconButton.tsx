@@ -21,8 +21,9 @@ const IconButton: FC<IconButtonProps> = ({
   return (
     <Button
       variant="unstyled"
-      rounded="full"
-      p="3"
+      rounded="xl"
+      p="2"
+      mx="1"
       minW="fit-content"
       minH="max-content"
       w="fit-content"

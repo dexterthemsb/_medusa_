@@ -11,7 +11,7 @@ import {
   TrashIcon as TrashIconOutline
 } from "@heroicons/react/24/outline";
 import { FC, MouseEvent, useState } from "react";
-import { SVG16, SVG20 } from "../constants/misc";
+import { SVG20 } from "../constants/misc";
 import IconButton from "./IconButton";
 
 interface AccordianHeaderProps {
@@ -106,16 +106,14 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
       </Box>
 
       <IconButton
-        ml="1"
-        p="2"
-        rounded="lg"
+        rounded="xl"
         bgColor="white"
         _hover={{ backgroundColor: "white" }}
       >
         {isExpanded ? (
-          <ChevronUpIconOutline {...SVG16} />
+          <ChevronUpIconOutline {...SVG20} />
         ) : (
-          <ChevronDownIconOutline {...SVG16} />
+          <ChevronDownIconOutline {...SVG20} />
         )}
       </IconButton>
     </AccordionButton>
