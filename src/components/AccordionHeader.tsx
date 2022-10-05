@@ -33,6 +33,11 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
     if (!isExpanded) e.preventDefault();
   };
 
+  const getInputDisplay = () => {
+    if (isExpanded) return ["none", "block"];
+    else return "block";
+  };
+
   return (
     <AccordionButton
       py="4"
@@ -47,31 +52,26 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
         outline="thick solid white"
       ></Box>
 
-      <Box
-        flex="1"
-        display={["none", "none", "flex"]}
-        flexDir="row"
-        alignItems="center"
-      >
-        <Box ml="4" flex="1" textAlign="left">
-          <Input
-            readOnly={!isExpanded}
-            variant={isExpanded ? "outline" : "unstyled"}
-            focusBorderColor="purple.500"
-            h="max-content"
-            py="1"
-            px="2"
-            bg={isExpanded ? "white" : "transparent"}
-            borderWidth="thin"
-            borderStyle="solid"
-            borderColor={isExpanded ? "gray.200" : "transparent"}
-            cursor={isExpanded ? "text" : "pointer"}
-            defaultValue="o/signup-flow"
-            onClick={handleInputOnClick}
-            onMouseDown={handleInputOnMouseDown}
-          />
-        </Box>
+      <Box ml="4" flex="1" display={getInputDisplay()} textAlign="left">
+        <Input
+          readOnly={!isExpanded}
+          variant={isExpanded ? "outline" : "unstyled"}
+          focusBorderColor="purple.500"
+          h="max-content"
+          py="1"
+          px="2"
+          bg={isExpanded ? "white" : "transparent"}
+          borderWidth="thin"
+          borderStyle="solid"
+          borderColor={isExpanded ? "gray.200" : "transparent"}
+          cursor={isExpanded ? "text" : "pointer"}
+          defaultValue="o/signup-flow"
+          onClick={handleInputOnClick}
+          onMouseDown={handleInputOnMouseDown}
+        />
+      </Box>
 
+      <Box display={["none", "none", "flex"]} flexDir="row" alignItems="center">
         <Box ml="4" rounded="full" bgColor="blue.400" w="8" h="8"></Box>
 
         <Box ml="3" display="flex" flexDir="row" alignItems="center">
