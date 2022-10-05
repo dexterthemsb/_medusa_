@@ -40,6 +40,8 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
 
   return (
     <AccordionButton
+      cursor="pointer"
+      as={Box}
       py="4"
       justifyContent="space-between"
       _hover={{ backgroundColor: "gray.100" }}
