@@ -1,4 +1,4 @@
-import { AccordionButton, Box, Input } from "@chakra-ui/react";
+import { AccordionButton, Box, Image, Input } from "@chakra-ui/react";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import {
   ArrowTopRightOnSquareIcon as ArrowTopRightOnSquareIconOutline,
@@ -72,7 +72,13 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
       </Box>
 
       <Box display={["none", "none", "flex"]} flexDir="row" alignItems="center">
-        <Box ml="4" rounded="full" bgColor="blue.400" w="8" h="8"></Box>
+        <Image
+          rounded="full"
+          ml="4"
+          w="8"
+          h="8"
+          src="/images/avatars/Geralt.svg"
+        />
 
         <Box ml="3" display="flex" flexDir="row" alignItems="center">
           <IconButton stopPropagation onClick={e => setLiked(!liked)}>
