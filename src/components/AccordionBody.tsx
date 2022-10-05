@@ -41,7 +41,7 @@ const AccordionBody: FC<AccordionBodyProps> = ({ isExpanded }) => {
   const [activeView, setActiveView] = useState<string>("info");
 
   return (
-    <AccordionPanel pt="0">
+    <AccordionPanel pt="4">
       <Box display="flex" flexDir="row">
         <Box display="flex" flexDir="column">
           {Object.keys(NAVIGATION).map(key => (
@@ -50,7 +50,7 @@ const AccordionBody: FC<AccordionBodyProps> = ({ isExpanded }) => {
               rounded="lg"
               p="2"
               mt={key === "info" ? 0 : 2}
-              bgColor={activeView === key ? "gray.200" : "transparent"}
+              bgColor={activeView === key ? "gray.100" : "transparent"}
               onClick={() => setActiveView(key)}
             >
               {/* @ts-ignore */}
