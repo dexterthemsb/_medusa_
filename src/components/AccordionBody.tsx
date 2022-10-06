@@ -7,6 +7,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { FC, useState } from "react";
 import { SVG20 } from "../constants/misc";
+import { AccordionProps } from "../types/shortcut";
 import Activity from "./AccordianBodyContent/Activity";
 import Analytics from "./AccordianBodyContent/Analytics";
 import Eye from "./AccordianBodyContent/Eye";
@@ -15,13 +16,14 @@ import IconButton from "./IconButton";
 
 interface AccordionBodyProps {
   isExpanded: boolean;
+  shortcut: AccordionProps;
 }
 
-const AccordionBody: FC<AccordionBodyProps> = ({ isExpanded }) => {
+const AccordionBody: FC<AccordionBodyProps> = ({ shortcut }) => {
   const NAVIGATION = {
     info: {
       icon: <InformationCircleIcon {...SVG20} />,
-      content: <Info />
+      content: <Info url={shortcut.url} description={shortcut.description} />
     },
     analytics: {
       icon: <ArrowTrendingUpIcon {...SVG20} />,
@@ -29,7 +31,7 @@ const AccordionBody: FC<AccordionBodyProps> = ({ isExpanded }) => {
     },
     activity: {
       icon: <Square3Stack3DIcon {...SVG20} />,
-      content: <Activity />
+      content: <Activity activity={shortcut.activity} />
     },
     eye: {
       icon: <EyeIcon {...SVG20} />,

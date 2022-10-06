@@ -1,16 +1,19 @@
 import { Box } from "@chakra-ui/react";
+import { FC } from "react";
+import { IHistory } from "../../types/shortcut";
+import HistoryCard from "../HistoryCard";
 
-const Activity = () => {
+interface ActivityProps {
+  activity: IHistory[];
+}
+
+const Activity: FC<ActivityProps> = ({ activity }) => {
   return (
-    <Box
-      minH="full"
-      display="flex"
-      flexDir="row"
-      alignItems="center"
-      justifyContent="center"
-      color="gray.500"
-    >
-      Activity
+    <Box minH="full">
+      {activity.map((obj, i) => (
+        // @ts-ignore
+        <HistoryCard key={obj.id} index={i} {...obj} />
+      ))}
     </Box>
   );
 };

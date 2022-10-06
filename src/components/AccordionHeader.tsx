@@ -16,10 +16,18 @@ import IconButton from "./IconButton";
 
 interface AccordianHeaderProps {
   isExpanded: boolean;
+  liked: boolean;
+  shortcutName: string;
+  orgAvatar: string;
 }
 
-export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
-  const [liked, setLiked] = useState<boolean>(false);
+export const AccordionHeader: FC<AccordianHeaderProps> = ({
+  isExpanded,
+  liked,
+  shortcutName,
+  orgAvatar
+}) => {
+  const [isLiked, setIsLiked] = useState<boolean>(liked);
 
   const handleInputOnClick = (
     e: MouseEvent<HTMLInputElement, globalThis.MouseEvent>
@@ -46,13 +54,13 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
       justifyContent="space-between"
       _hover={{ backgroundColor: "gray.100" }}
     >
-      <Box
+      <Image
         rounded="full"
-        bgColor="yellow.400"
+        bgColor="gray.100"
         w="9"
         h="9"
-        outline="thick solid white"
-      ></Box>
+        src={orgAvatar}
+      ></Image>
 
       <Box ml="4" flex="1" display={getInputDisplay()} textAlign="left">
         <Input
@@ -67,7 +75,7 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
           borderStyle="solid"
           borderColor={isExpanded ? "gray.200" : "transparent"}
           cursor={isExpanded ? "text" : "pointer"}
-          defaultValue="o/signup-flow"
+          defaultValue={shortcutName}
           onClick={handleInputOnClick}
           onMouseDown={handleInputOnMouseDown}
         />
@@ -83,8 +91,8 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({ isExpanded }) => {
         />
 
         <Box ml="3" display="flex" flexDir="row" alignItems="center">
-          <IconButton stopPropagation onClick={e => setLiked(!liked)}>
-            {liked ? (
+          <IconButton stopPropagation onClick={() => setIsLiked(!isLiked)}>
+            {isLiked ? (
               <HeartIconSolid {...SVG20} />
             ) : (
               <HeartIconOutline {...SVG20} />

@@ -1,14 +1,7 @@
-import {
-  Accordion,
-  AccordionItem,
-  Container,
-  ChakraProvider,
-  Box,
-  Heading
-} from "@chakra-ui/react";
-import AccordionBody from "./components/AccordionBody";
-import { AccordionHeader } from "./components/AccordionHeader";
+import { Container, ChakraProvider, Heading } from "@chakra-ui/react";
+import Accordion from "./components/Accordion";
 import theme from "./config/theme";
+import { data } from "./data/dummy";
 
 function App() {
   return (
@@ -17,28 +10,7 @@ function App() {
         <Heading pt="16" pb="8">
           Shortcut Editor
         </Heading>
-
-        <Accordion allowMultiple>
-          <AccordionItem
-            borderWidth="none"
-            borderStyle="none"
-            borderColor="none"
-          >
-            {({ isExpanded }) => (
-              <Box
-                rounded="lg"
-                overflow="hidden"
-                borderWidth={isExpanded ? "medium" : "thin"}
-                borderStyle="solid"
-                borderColor={isExpanded ? "purple.500" : "gray.200"}
-                boxShadow={isExpanded ? "md" : "none"}
-              >
-                <AccordionHeader isExpanded={isExpanded} />
-                <AccordionBody isExpanded={isExpanded} />
-              </Box>
-            )}
-          </AccordionItem>
-        </Accordion>
+        <Accordion {...data} />
       </Container>
     </ChakraProvider>
   );

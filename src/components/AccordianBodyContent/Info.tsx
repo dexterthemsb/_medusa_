@@ -1,6 +1,12 @@
 import { Box, Input, Text, Textarea, theme } from "@chakra-ui/react";
+import { FC } from "react";
 
-const Info = () => {
+interface InfoProps {
+  url: string;
+  description: string;
+}
+
+const Info: FC<InfoProps> = ({ url, description }) => {
   return (
     <Box minH="full">
       <Input
@@ -10,7 +16,7 @@ const Info = () => {
         h="max-content"
         variant="filled"
         placeholder="Enter website"
-        defaultValue="https://www.oslash.com"
+        defaultValue={url}
       />
       <Textarea
         maxLength={200}
@@ -21,7 +27,7 @@ const Info = () => {
         resize="none"
         variant="filled"
         placeholder="Enter description"
-        defaultValue="OSlash shortcut."
+        defaultValue={description}
       />
       <Text w="full" fontSize="sm">
         <span
