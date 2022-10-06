@@ -23,7 +23,13 @@ const AccordionBody: FC<AccordionBodyProps> = ({ shortcut }) => {
   const NAVIGATION = {
     info: {
       icon: <InformationCircleIcon {...SVG20} />,
-      content: <Info url={shortcut.url} description={shortcut.description} />
+      content: (
+        <Info
+          url={shortcut.url}
+          description={shortcut.description}
+          tags={shortcut.tags}
+        />
+      )
     },
     analytics: {
       icon: <ArrowTrendingUpIcon {...SVG20} />,

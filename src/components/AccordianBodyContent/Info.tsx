@@ -4,9 +4,10 @@ import { FC } from "react";
 interface InfoProps {
   url: string;
   description: string;
+  tags: string[];
 }
 
-const Info: FC<InfoProps> = ({ url, description }) => {
+const Info: FC<InfoProps> = ({ url, description, tags }) => {
   return (
     <Box minH="full">
       <Input
@@ -30,17 +31,20 @@ const Info: FC<InfoProps> = ({ url, description }) => {
         defaultValue={description}
       />
       <Text w="full" fontSize="sm">
-        <span
-          style={{
-            display: "inline-block",
-            padding: "4px 8px",
-            margin: "8px 8px 0 0",
-            borderRadius: 9999,
-            backgroundColor: theme.colors.gray[200]
-          }}
-        >
-          #engineering
-        </span>
+        {tags.map(tag => (
+          <span
+            key={tag}
+            style={{
+              display: "inline-block",
+              padding: "4px 8px",
+              margin: "8px 8px 0 0",
+              borderRadius: 9999,
+              backgroundColor: theme.colors.gray[200]
+            }}
+          >
+            #{tag}
+          </span>
+        ))}
       </Text>
     </Box>
   );
