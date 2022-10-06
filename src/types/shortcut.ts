@@ -1,3 +1,5 @@
+import { AccordionProps as ChakraAccordionProps } from "@chakra-ui/react";
+
 export type HistoryTask = "updated" | "created" | "deleted";
 
 export interface IHistoryValue {
@@ -17,7 +19,7 @@ export interface IHistory {
   date: string;
 }
 
-export interface AccordionProps {
+export interface AccordionProps extends ChakraAccordionProps {
   orgAvatar: string;
   liked: boolean;
   shortcutName: string;
