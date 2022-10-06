@@ -20,7 +20,7 @@ export const data: AccordionProps = {
         before: "o/engineering-docs",
         after: "o/engineering-resources"
       },
-      date: "2022-09-05 21:30:00 UTC"
+      date: "2022-10-06 18:23:00 UTC"
     },
     {
       id: "2d6a1514-7f6b-438a-abeb-d251d3e5c458",
@@ -48,7 +48,7 @@ export const data: AccordionProps = {
         before: "o/engineering",
         after: "o/engineering-docs"
       },
-      date: "2022-09-05 21:30:00 UTC"
+      date: "2022-08-05 21:30:00 UTC"
     },
     {
       id: "c357e4fc-a7fd-404f-960b-b91ee996bac1",
@@ -62,7 +62,7 @@ export const data: AccordionProps = {
         before: "",
         after: ""
       },
-      date: "2022-08-05 21:30:00 UTC"
+      date: "2021-10-05 21:30:00 UTC"
     }
   ]
 };

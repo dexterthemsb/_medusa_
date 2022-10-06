@@ -1,19 +1,9 @@
-import { Box, Center, Image, Text, theme } from "@chakra-ui/react";
+import { Box, Image, Text, theme } from "@chakra-ui/react";
 import { FC } from "react";
 import { IHistory } from "../types/shortcut";
+import { getHistoryDateDifference } from "../utils/date";
 
-interface HistoryCardProps extends IHistory {
-  index: number;
-}
-
-const HistoryCard: FC<HistoryCardProps> = ({
-  index,
-  user,
-  label,
-  task,
-  value,
-  date
-}) => {
+const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
   const getString1 = () => {
     const base = ` ${task} ${label}`;
     if (!!value.before && !!value.after) return base + " from";
@@ -38,30 +28,26 @@ const HistoryCard: FC<HistoryCardProps> = ({
   };
 
   return (
-    <>
-      {!!index && (
-        <Center my="1" w="8" h="4">
-          <Box rounded="full" h="full" w="1" bgColor="gray.100"></Box>
-        </Center>
-      )}
+    <Box w="full" display="flex" flexDir="row" alignItems="center">
+      <Image
+        rounded="full"
+        mr="2"
+        w="8"
+        h="8"
+        objectFit="cover"
+        src={user.avatar}
+      />
 
-      <Box display="flex" flexDir="row" alignItems="center">
-        <Image
-          rounded="full"
-          mr="2"
-          w="8"
-          h="8"
-          objectFit="cover"
-          src={user.avatar}
-        />
+      <Text flex="1" fontSize="sm" lineHeight="shorter" color="gray.500">
+        <span style={{ fontWeight: 500, color: "black" }}>{user.name}</span>
+        {getString1()}
+        {getString2()}
+      </Text>
 
-        <Text fontSize="sm" lineHeight="shorter" color="gray.500">
-          <span style={{ fontWeight: 500, color: "black" }}>{user.name}</span>
-          {getString1()}
-          {getString2()}
-        </Text>
-      </Box>
-    </>
+      <Text fontSize="sm" color="gray.500">
+        {getHistoryDateDifference(date)}
+      </Text>
+    </Box>
   );
 };
 
