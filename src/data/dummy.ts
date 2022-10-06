@@ -15,7 +15,7 @@ export const data: AccordionProps = {
         avatar: "/images/avatars/Geralt.svg"
       },
       task: "updated",
-      label: "Shortcut",
+      label: "Shortcut Name",
       value: {
         before: "o/engineering-docs",
         after: "o/engineering-resources"
@@ -43,7 +43,7 @@ export const data: AccordionProps = {
         avatar: "/images/avatars/Geralt.svg"
       },
       task: "updated",
-      label: "Shortcut",
+      label: "Shortcut Name",
       value: {
         before: "o/engineering",
         after: "o/engineering-docs"

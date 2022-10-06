@@ -6,21 +6,30 @@ import { getHistoryDateDifference } from "../utils/date";
 const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
   const getString1 = () => {
     const base = ` ${task} ${label}`;
-    if (!!value.before && !!value.after) return base + " from";
-    else return base;
+
+    if (!!value.before && !!value.after) {
+      return (
+        <>
+          <span>{base}</span>
+          <Text display={["none", "none", "inline"]}> from</Text>
+        </>
+      );
+    }
+
+    return base;
   };
 
   const getString2 = () => {
     if (!!value.before && !!value.after) {
       return (
-        <>
+        <Text display={["none", "none", "inline"]}>
           <br />
           <s>{`${value.before}`}</s>
           {" to "}
           <span
             style={{ color: theme.colors.blue[400] }}
           >{`${value.after}`}</span>
-        </>
+        </Text>
       );
     }
 
@@ -38,7 +47,15 @@ const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
         src={user.avatar}
       />
 
-      <Text flex="1" fontSize="sm" lineHeight="shorter" color="gray.500">
+      <Text
+        flex="1"
+        fontSize="sm"
+        lineHeight="shorter"
+        color="gray.500"
+        overflow="hidden"
+        textOverflow="ellipsis"
+        noOfLines={2}
+      >
         <span style={{ fontWeight: 500, color: "black" }}>{user.name}</span>
         {getString1()}
         {getString2()}
