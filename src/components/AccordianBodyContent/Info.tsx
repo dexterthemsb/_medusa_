@@ -25,6 +25,7 @@ const Info: FC<InfoProps> = ({ url, description, tags }) => {
         size="sm"
         mb="2"
         bgColor="gray.50"
+        borderColor="gray.300"
         rounded="default"
         placeholder="Enter description"
         defaultValue={description}
