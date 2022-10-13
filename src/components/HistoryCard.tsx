@@ -1,5 +1,6 @@
-import { Box, Image, Text, theme } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { FC } from "react";
+import theme from "../config/theme";
 import { IHistory } from "../types/shortcut";
 import { getHistoryDateDifference } from "../utils/date";
 
@@ -9,10 +10,10 @@ const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
 
     if (!!value.before && !!value.after) {
       return (
-        <>
+        <span style={{ color: theme.colors.gray[500] }}>
           <span>{base}</span>
           <Text display={["none", "none", "inline"]}> from</Text>
-        </>
+        </span>
       );
     }
 
@@ -27,7 +28,7 @@ const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
           <s>{`${value.before}`}</s>
           {" to "}
           <span
-            style={{ color: theme.colors.blue[400] }}
+            style={{ color: theme.colors.indigo[500] }}
           >{`${value.after}`}</span>
         </Text>
       );
@@ -61,7 +62,7 @@ const HistoryCard: FC<IHistory> = ({ user, label, task, value, date }) => {
         {getString2()}
       </Text>
 
-      <Text fontSize="sm" color="gray.500">
+      <Text fontSize="xs" color="gray.500">
         {getHistoryDateDifference(date)}
       </Text>
     </Box>

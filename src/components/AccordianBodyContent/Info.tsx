@@ -12,21 +12,20 @@ const Info: FC<InfoProps> = ({ url, description, tags }) => {
     <Box minH="full">
       <Input
         mb="4"
-        py="1"
-        px="2"
-        h="max-content"
-        variant="filled"
-        placeholder="Enter website"
+        size="sm"
+        variant="outline"
+        borderColor="gray.300"
+        bgColor="gray.50"
         defaultValue={url}
       />
       <Textarea
         maxLength={200}
-        mb="2"
-        py="1"
-        px="2"
-        h="max-content"
         resize="none"
-        variant="filled"
+        variant="outline"
+        size="sm"
+        mb="2"
+        bgColor="gray.50"
+        rounded="default"
         placeholder="Enter description"
         defaultValue={description}
       />
@@ -36,7 +35,7 @@ const Info: FC<InfoProps> = ({ url, description, tags }) => {
             key={tag}
             style={{
               display: "inline-block",
-              padding: "4px 8px",
+              padding: "6px 8px",
               margin: "8px 8px 0 0",
               borderRadius: 9999,
               backgroundColor: theme.colors.gray[200]

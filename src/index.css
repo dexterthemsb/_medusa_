@@ -10,3 +10,7 @@ body {
 code {
   font-family: Consolas, monospace;
 }
+
+svg {
+  display: inline-block !important;
+}

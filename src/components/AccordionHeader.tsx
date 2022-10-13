@@ -1,15 +1,17 @@
 import { AccordionButton, Box, Image, Input } from "@chakra-ui/react";
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import {
-  ArrowTopRightOnSquareIcon as ArrowTopRightOnSquareIconOutline,
-  BuildingOfficeIcon as BuildingOfficeIconOutline,
-  ChevronDownIcon as ChevronDownIconOutline,
-  ChevronUpIcon as ChevronUpIconOutline,
-  HeartIcon as HeartIconOutline,
-  ShareIcon as ShareIconOutline,
-  Square2StackIcon as Square2StackIconOutline,
-  TrashIcon as TrashIconOutline
-} from "@heroicons/react/24/outline";
+  DuplicateIcon,
+  HeartIcon as HeartIconSolid,
+  OfficeBuildingIcon,
+  ShareIcon,
+  TrashIcon
+} from "@heroicons/react/solid";
+import {
+  ExternalLinkIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  HeartIcon as HeartIconOutline
+} from "@heroicons/react/outline";
 import { FC, MouseEvent, useState } from "react";
 import { SVG20 } from "../constants/misc";
 import IconButton from "./IconButton";
@@ -50,30 +52,29 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({
     <AccordionButton
       cursor="pointer"
       as={Box}
-      py="4"
+      py={isExpanded ? "4" : "2"}
       justifyContent="space-between"
-      _hover={{ backgroundColor: "gray.100" }}
+      _hover={{ backgroundColor: "transparent" }}
     >
       <Image
         rounded="full"
         bgColor="gray.100"
-        w="9"
-        h="9"
+        w="12"
+        h="12"
+        border="6px solid white"
         src={orgAvatar}
       ></Image>
 
-      <Box ml="4" flex="1" display={getInputDisplay()} textAlign="left">
+      <Box ml="2" flex="1" display={getInputDisplay()} textAlign="left">
         <Input
+          size="sm"
+          rounded="default"
           readOnly={!isExpanded}
           variant={isExpanded ? "outline" : "unstyled"}
-          focusBorderColor="purple.500"
-          h="max-content"
-          py="1"
-          px="2"
           bg={isExpanded ? "white" : "transparent"}
           borderWidth="thin"
           borderStyle="solid"
-          borderColor={isExpanded ? "gray.200" : "transparent"}
+          borderColor={isExpanded ? "gray.300" : "transparent"}
           cursor={isExpanded ? "text" : "pointer"}
           defaultValue={shortcutName}
           onClick={handleInputOnClick}
@@ -90,7 +91,7 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({
           src="/images/avatars/Geralt.svg"
         />
 
-        <Box ml="3" display="flex" flexDir="row" alignItems="center">
+        <Box ml="1" display="flex" flexDir="row" alignItems="center">
           <IconButton stopPropagation onClick={() => setIsLiked(!isLiked)}>
             {isLiked ? (
               <HeartIconSolid {...SVG20} />
@@ -99,22 +100,22 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({
             )}
           </IconButton>
           <IconButton stopPropagation>
-            <BuildingOfficeIconOutline {...SVG20} />
+            <OfficeBuildingIcon {...SVG20} />
           </IconButton>
 
           {!!isExpanded && (
             <>
               <IconButton stopPropagation>
-                <ArrowTopRightOnSquareIconOutline {...SVG20} />
+                <ExternalLinkIcon {...SVG20} />
               </IconButton>
               <IconButton stopPropagation>
-                <Square2StackIconOutline {...SVG20} />
+                <DuplicateIcon {...SVG20} />
               </IconButton>
               <IconButton stopPropagation>
-                <ShareIconOutline {...SVG20} />
+                <ShareIcon {...SVG20} />
               </IconButton>
               <IconButton stopPropagation>
-                <TrashIconOutline {...SVG20} />
+                <TrashIcon {...SVG20} />
               </IconButton>
             </>
           )}
@@ -122,14 +123,15 @@ export const AccordionHeader: FC<AccordianHeaderProps> = ({
       </Box>
 
       <IconButton
-        rounded="xl"
+        mr="0"
+        rounded="default"
         bgColor="white"
         _hover={{ backgroundColor: "white" }}
       >
         {isExpanded ? (
-          <ChevronUpIconOutline {...SVG20} />
+          <ChevronUpIcon {...SVG20} />
         ) : (
-          <ChevronDownIconOutline {...SVG20} />
+          <ChevronDownIcon {...SVG20} />
         )}
       </IconButton>
     </AccordionButton>

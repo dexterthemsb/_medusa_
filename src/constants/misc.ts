@@ -9,5 +9,5 @@ export const SVG16: ComponentProps<"svg"> = {
 export const SVG20: ComponentProps<"svg"> = {
   width: 20,
   height: 20,
-  strokeWidth: 2
+  strokeWidth: 2.5
 };

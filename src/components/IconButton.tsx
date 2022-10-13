@@ -21,14 +21,14 @@ const IconButton: FC<IconButtonProps> = ({
   return (
     <Button
       variant="unstyled"
-      rounded="xl"
-      p="2"
-      mx="1"
-      minW="fit-content"
-      minH="max-content"
-      w="fit-content"
-      h="max-content"
-      color="gray.700"
+      minW="8"
+      minH="8"
+      w="8"
+      h="8"
+      p="1.5"
+      mr="1"
+      justifyContent="cetner"
+      color="gray.900"
       onClick={handleOnClick}
       {...rest}
     >

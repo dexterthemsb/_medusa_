@@ -1,10 +1,10 @@
 import { AccordionPanel, Box } from "@chakra-ui/react";
 import {
-  ArrowTrendingUpIcon,
-  EyeIcon,
+  TrendingUpIcon,
   InformationCircleIcon,
-  Square3Stack3DIcon
-} from "@heroicons/react/24/outline";
+  StatusOnlineIcon
+} from "@heroicons/react/outline";
+import { EyeIcon } from "@heroicons/react/solid";
 import { FC, useState } from "react";
 import { SVG20 } from "../constants/misc";
 import { AccordionProps } from "../types/shortcut";
@@ -32,11 +32,11 @@ const AccordionBody: FC<AccordionBodyProps> = ({ shortcut }) => {
       )
     },
     analytics: {
-      icon: <ArrowTrendingUpIcon {...SVG20} />,
+      icon: <TrendingUpIcon {...SVG20} />,
       content: <Analytics />
     },
     activity: {
-      icon: <Square3Stack3DIcon {...SVG20} />,
+      icon: <StatusOnlineIcon {...SVG20} />,
       content: <Activity activity={shortcut.activity} />
     },
     eye: {
@@ -49,16 +49,16 @@ const AccordionBody: FC<AccordionBodyProps> = ({ shortcut }) => {
   const [activeView, setActiveView] = useState<string>("info");
 
   return (
-    <AccordionPanel pt="4">
-      <Box display="flex" flexDir="row">
+    <AccordionPanel px="4" pt="0" pb="4">
+      <Box display="flex" flexDir="row" p="2">
         <Box display="flex" flexDir="column">
           {Object.keys(NAVIGATION).map(key => (
             <IconButton
+              mr="0"
               key={key}
               rounded="lg"
-              p="2"
-              mt={key === "info" ? 0 : 2}
-              bgColor={activeView === key ? "gray.100" : "transparent"}
+              mt={key === "info" ? 0 : 4}
+              bgColor={activeView === key ? "blue.100" : "transparent"}
               onClick={() => setActiveView(key)}
             >
               {/* @ts-ignore */}

@@ -13,8 +13,8 @@ const Activity: FC<ActivityProps> = ({ activity }) => {
       {activity.map((obj, i) => (
         <Box key={obj.id} w="full">
           {!!i && (
-            <Center my="1" w="8" h="4">
-              <Box rounded="full" h="full" w="1" bgColor="gray.100"></Box>
+            <Center my="2" w="8" h="4">
+              <Box rounded="full" h="full" w="3px" bgColor="gray.300"></Box>
             </Center>
           )}
 

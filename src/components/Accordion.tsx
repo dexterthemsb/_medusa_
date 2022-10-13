@@ -18,8 +18,12 @@ const Accordion: FC<AccordionProps> = props => {
             overflow="hidden"
             borderWidth={isExpanded ? "medium" : "thin"}
             borderStyle="solid"
-            borderColor={isExpanded ? "purple.500" : "gray.200"}
-            boxShadow={isExpanded ? "md" : "none"}
+            borderColor={isExpanded ? "indigo.500" : "gray.100"}
+            boxShadow={isExpanded ? "expanded" : "base"}
+            _hover={{
+              borderColor: isExpanded ? "indigo.500" : "gray.200",
+              backgroundColor: isExpanded ? "transparent" : "gray.100"
+            }}
           >
             <AccordionHeader
               liked={props.liked}
